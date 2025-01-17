@@ -2,15 +2,6 @@ import { UserModel } from "@models/users";
 import type { IUserRepository, User } from "types/users.types";
 
 export class UserRepository implements IUserRepository {
-	private users: User[] = [
-		{
-			id: "1",
-			name: "Marco",
-			email: "marco@example.com",
-			userName: "marco",
-		},
-	];
-
 	async create(data: User): Promise<User> {
 		const newUser = new UserModel(data);
 		return await newUser.save();
